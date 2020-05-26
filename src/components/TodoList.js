@@ -5,7 +5,7 @@ export default class TodoList extends Component {
   constructor() {
     super()
     this.state = {
-      savedTodoItems: ["Make a todo list of all my todo lists", "Make a playlist for every possible occasion", "Meals I want to eat this week"],
+      savedTodoItems: ["Make a todo list of all my todo lists", "Make a playlist for every possible occasion", "Stop checking phone compulsively"],
       inputtedItem : ''
     }
     this.submitForm = this.submitForm.bind(this);
@@ -13,7 +13,7 @@ export default class TodoList extends Component {
     // this.handleFormReset = this.handleFormReset.bind(this);
   }
 
-  submitForm(event, form) {
+  submitForm(event) {
     event.preventDefault();
 
     // Grab the input that the user typed in
