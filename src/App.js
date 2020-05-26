@@ -1,10 +1,14 @@
 import React from 'react';
 import './App.css';
+import TodoList from './components/TodoList';
+import LastItemDisplay from './components/LastItemDisplay';
 
 function App() {
   return (
-    <div className="App">
-        <h2> todo application </h2>
+    <div className="main">
+      <h2 className="title">  Checklist  </h2>
+      <TodoList />
+      <LastItemDisplay />
     </div>
   );
 }
