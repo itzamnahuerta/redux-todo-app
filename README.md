@@ -1,68 +1,35 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Todo React-Redux Web App
 
-## Available Scripts
+### Overview
 
-In the project directory, you can run:
+For this lab, we will work ontop of our <b>Todo</b> web application starter code. I encourage you to take a few minutes to browse through the files first- you'll find pseudocode throughout them as well. Our current application has one <i>stateful component</i> which is our `TodoList.js`. At this stage, we are only able to <b> create </b> a new todo item. What we would like to do next is be able to <i> display our last item inside of the todo list </i>. `LastItemDisplay.js` currently does not have access to our state default data which is stored in `TodoList.js`. We will use this project as an introduction to <b>Redux</b> and it will serve as a boiler plate for future projects! 
 
-### `yarn start`
+#### Redux 
+- Predictable: Redux helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test.
+- Centralized: Centralizing your application's state and logic enables powerful capabilities like undo/redo, state persistence, and much more.
+- Debuggable: The Redux DevTools make it easy to trace when, where, why, and how your application's state changed. Redux's architecture lets you log changes, use "time-travel debugging", and even send complete error reports to a server.
+- Flexible: Redux works with any UI layer, and has a large ecosystem of addons to fit your needs.
+<br>
+#### What to expect from this lab
+- Instructional code along with setting up Redux 
+  - Transfer our current state into a Redux store
+  - Display last item on our todo list
+- Independent work to finish off a CRUD application
+  - Update items
+  - Delete items
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br>
+#### Getting Started
+1. Clone this repository
+2. `npm start`
+3. `npm i`
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<b>~~~~~~ Ready! ~~~~~~~ </b>
+</b><br>
+<br>
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+![Alt Text](./imgs/starter-code-web-app.png)
