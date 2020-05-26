@@ -1,4 +1,10 @@
 .todo{
-  border: 2px solid  red;
+  /* border: 2px solid  red; */
   flex: 1;
+}
+#item-wrapper {
+  border-left: 3px solid forestgreen;
+}
+#item {
+  margin-left: .4em;
 }
