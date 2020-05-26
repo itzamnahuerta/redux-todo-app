@@ -19,7 +19,9 @@ For this lab, we will work ontop of our <b>Todo</b> web application starter code
   - Delete items
 
 <br>
+
 #### Getting Started
+
 1. Clone this repository
 2. `npm start`
 3. `npm i`
