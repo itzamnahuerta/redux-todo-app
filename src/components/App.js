@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
-import TodoList from './components/TodoList';
-import LastItemDisplay from './components/LastItemDisplay';
+import '../syles/App.css';
+import TodoList from './TodoList';
+import LastItemDisplay from './LastItemDisplay';
 
 function App() {
   return (

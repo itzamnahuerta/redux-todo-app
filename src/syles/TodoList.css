@@ -8,3 +8,13 @@
 #item {
   margin-left: .4em;
 }
+#inputted-item {
+  height: 3em;
+  width: 50%;
+  border: none;
+
+  font-size: 12pt;
+}
+textarea:focus, input:focus{
+  outline: none;
+}
