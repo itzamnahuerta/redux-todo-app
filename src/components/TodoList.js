@@ -5,15 +5,18 @@ export default class TodoList extends Component {
   constructor() {
     super()
     this.state = {
-      savedTodoItems: ["Make a todo list of all my todo lists", "Make a playlist for every possible occasion", "Meals I want to eat this week"]
+      savedTodoItems: ["Make a todo list of all my todo lists", "Make a playlist for every possible occasion", "Meals I want to eat this week"],
+      inputtedItem : ''
     }
-    this.submitForm = this.submitForm.bind(this)
+    this.submitForm = this.submitForm.bind(this);
+    this.onChange = this.onChange.bind(this);
+    // this.handleFormReset = this.handleFormReset.bind(this);
   }
 
   submitForm(event, form) {
     event.preventDefault();
-    
-    // grab the input that the user typed in
+
+    // Grab the input that the user typed in
     const inputtedItem = document.querySelector("#inputted-item");
 
     // The parameters "state" & "props" are copies of this components state and props 
@@ -21,11 +24,18 @@ export default class TodoList extends Component {
     this.setState((state, props) => {
 
       state.savedTodoItems.push(inputtedItem.value);
-      console.log("------ this is new state -------", state.savedTodoItems)
-      return {savedTodoItems: state.savedTodoItems};
+      return {savedTodoItems: state.savedTodoItems, inputtedItem: ''};
     });
+
+
   }
 
+  onChange(event) {
+    // Will capture the input value on the <input> tag and save into state 
+    // Once the form is submitted, the setstate on the function will reset the value to an empty string
+
+    this.setState({inputtedItem: event.target.value})
+  }
 
   render() {
     // -------------------------------------------------
@@ -40,8 +50,13 @@ export default class TodoList extends Component {
     return (
       <div className="todo">
         <form onSubmit={this.submitForm} > 
-          <input id="inputted-item" type="text" placeholder="Add Item" autoComplete="off" ></input>
-          {/* <button type="submit" hidden> </button> */}
+          <input 
+            id="inputted-item" 
+            type="text" 
+            placeholder="Add Item" 
+            autoComplete="off"  
+            onChange={this.onChange} 
+            value={this.state.inputtedItem} />
         </form>        
         {/* here we are rendering the <h5>'s that we made earlier using the variable "listOfItems" */}
         {listOfItems}
