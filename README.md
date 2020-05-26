@@ -10,6 +10,7 @@ For this lab, we will work ontop of our <b>Todo</b> web application starter code
 - Debuggable: The Redux DevTools make it easy to trace when, where, why, and how your application's state changed. Redux's architecture lets you log changes, use "time-travel debugging", and even send complete error reports to a server.
 - Flexible: Redux works with any UI layer, and has a large ecosystem of addons to fit your needs.
 <br>
+
 #### What to expect from this lab
 - Instructional code along with setting up Redux 
   - Transfer our current state into a Redux store
