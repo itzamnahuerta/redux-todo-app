@@ -246,14 +246,68 @@ console.log(this.props.todoState.savedTodoItems)
   ```js
   import { addTodoItem } from '../actions';
   ```
-<b>8.1.</b> use `mapDispatchToProps` to inject actions into your props object. Dispatch is a method that will send this action to the reducer. 
+
+<b>8.1.</b> In use `mapDispatchToProps` to inject actions into your props object. Dispatch is a method that will send this action to the reducer. Place the following code snippet above your class component.
 
   ```js
 
-  const mapDispatchToProps = dispatch => {
+  const mapDispatchToProps = dispatch => ({
     addTodoItem: (itemToAdd) => dispatch(addTodoItem(itemToAdd))
-  }
+  })
   ```
+
+<b>8.2.</b> Now let's update our class component 
+- Remove <b>this.state</b> from the constructor
+
+  <details>
+  <summary> Code Snippet </summary>
+
+    ```js
+    
+    constructor(){
+        super()
+        this.submitForm = this.submitForm.bind(this)
+    }
+
+    ```
+  
+  </details>
+
+
+- Update our submitForm method 
+
+    <details>
+    <summary>  Code Snippet </summary>
+
+    ```js
+    submitForm(event){
+        event.preventDefault();
+
+        // grab the input that the user typed in
+        const inputtedItem = document.querySelector("#inputted-item");
+        this.props.addToDoItem(inputtedItem.value)
+
+    }
+    ```
+    </details>
+
+- Render() listOfItems must also be updated
+    <details>
+    <summary>  Code Snippet </summary>
+
+    ```js
+    //-------------------------------------
+    // Loop through all todo items in state (using map()) 
+    // and render a <h5></h5> for each todo item
+    //-------------------------------------
+
+    // looping through the array in state
+    const listOfItems =this.props.todoState.savedToDoItems.map((item, id)=>{
+         return(<h5 key={id}>{item}</h5>)
+    })
+    ```
+    </details>
+
 ##### STEP 9
 
 > <b> src/actionTypes.js </b>
