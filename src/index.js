@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
-// import * as serviceWorker from './serviceWorker';
+import App from './Components/App';
+// 1. We need to import this Provider to "GIVE" our app access to redux state. 
+// We do this using react-redux because this is a react application
+import{ Provider } from 'react-redux';
 
-ReactDOM.render(<App />, document.getElementById('root')
+// 1.5 Import store (which has not been created as of yet) but will be given to Provider as an attribute so our application can access it 😺
+import store from "./store";
+
+// Provider is just a component
+ReactDOM.render(
+    <Provider store = {store}>
+        <App />
+    </Provider>, document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-// serviceWorker.unregister();
