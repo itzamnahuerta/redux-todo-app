@@ -1,50 +1,62 @@
 import React, { Component } from 'react'
 import '../syles/TodoList.css';
 
+// 8) Make sure to import the specific actions that this component will be using 
+import { addTodoItem } from '../actions';
+
+// 5) we need to import the connect method
+import { connect } from 'react-redux';
+
+// 5.2) mapStateToProps() is a method that will inject redux state from 
+// your redux store into your Props object. It returns an object.
+
+// store.todoReducer refers to the key called "todoReducer" in the keyvalue 
+// pair we set up in the ./reducers/index.js
+
+//**NOTE **/ mapStateToProps and mapDispatchToProps should always go outside of your react component.
+
+
+const mapStateToProps = (store) => ({
+  todoState: store.todoReducer
+})
+
+// 8.1) use mapDispatchToProps to inject actions into your props object. Dispatch is a method that will send this action to the reducer.
+const mapDispatchToProps = dispatch => ({
+  addTodoItem : (itemToAdd)=> dispatch(addTodoItem(itemToAdd)),
+})
+
 export default class TodoList extends Component {
-  constructor() {
+  constructor(){
     super()
-    this.state = {
-      savedTodoItems: ["Make a todo list of all my todo lists", "Make a playlist for every possible occasion", "Stop checking phone compulsively"],
-      inputtedItem : ''
-    }
-    this.submitForm = this.submitForm.bind(this);
-    this.onChange = this.onChange.bind(this);
-    // this.handleFormReset = this.handleFormReset.bind(this);
+    this.submitForm = this.submitForm.bind(this)
   }
 
-  submitForm(event) {
+  //-------------------------------------
+  // When we submit the form, we call this function
+  //-------------------------------------
+  submitForm(event){
     event.preventDefault();
 
-    // Grab the input that the user typed in
+    // grab the input that the user typed in
     const inputtedItem = document.querySelector("#inputted-item");
-
-    // The parameters "state" & "props" are copies of this components state and props 
-    // That way we can manipulate them without touching the real state or real props 
-    this.setState((state, props) => {
-
-      state.savedTodoItems.push(inputtedItem.value);
-      return {savedTodoItems: state.savedTodoItems, inputtedItem: ''};
-    });
-
-
-  }
-
-  onChange(event) {
-    // Will capture the input value on the <input> tag and save into state 
-    // Once the form is submitted, the setstate on the function will reset the value to an empty string
-
-    this.setState({inputtedItem: event.target.value})
+    this.props.addToDoItem(inputtedItem.value)
   }
 
   render() {
-    // -------------------------------------------------
-    // loop through all todo items in state using map() 
-    // & render a <h5> tag for each todo item
-    // -------------------------------------------------
-    const listOfItems = this.state.savedTodoItems.map((item, index) => {
-      // console.log("testing list items****", id)
-      return (<div id="item-wrapper" key={index}><p id="item" >{item}</p> </div>)
+    // ---------------------------------------
+    // 5.3) From now on we can refer to our redux state 
+    // through our props object aka this.props.todoState.savedTodoItems 
+    // ---------------------------------------
+    console.log(this.props.todoState.savedToDoItems)
+
+    //-------------------------------------
+    // Loop through all todo items in state (using map()) 
+    // and render a <h5></h5> for each todo item
+    //-------------------------------------
+
+    // looping through the array in state
+    const listOfItems =this.props.todoState.savedToDoItems.map((item, id)=>{
+         return(<h5 key={id}>{item}</h5>)
     })
 
     return (
@@ -55,8 +67,7 @@ export default class TodoList extends Component {
             type="text" 
             placeholder="Add Item" 
             autoComplete="off"  
-            onChange={this.onChange} 
-            value={this.state.inputtedItem} />
+             />
         </form>        
         {/* here we are rendering the <h5>'s that we made earlier using the variable "listOfItems" */}
         {listOfItems}
