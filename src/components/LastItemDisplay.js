@@ -14,9 +14,9 @@ const mapStateToProps = (store) => ({
 
 class LastItemDisplay extends React.Component {
   render(){
-    console.log("find me at last item display: ", this.props.todoState.savedToDoItems[this.props.todoState.savedToDoItems.length -1])
+    // console.log("find me at last item display: ", this.props.todoState.savedToDoItems[this.props.todoState.savedTodoItems.length -1])
        // from updatedstate of savedtodoitems[-1] element and display here 
-       const lastElementinTodo = this.props.todoState.savedToDoItems[this.props.todoState.savedToDoItems.length -1]
+       const lastElementinTodo = this.props.todoState.savedTodoItems[this.props.todoState.savedTodoItems.length -1]
       return (
         <div id="last-item-display">
           The last item added goes in here: {lastElementinTodo}

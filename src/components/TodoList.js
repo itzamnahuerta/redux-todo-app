@@ -25,7 +25,7 @@ const mapDispatchToProps = dispatch => ({
   addTodoItem : (itemToAdd)=> dispatch(addTodoItem(itemToAdd)),
 })
 
-export default class TodoList extends Component {
+class TodoList extends Component {
   constructor(){
     super()
     this.submitForm = this.submitForm.bind(this)
@@ -39,7 +39,7 @@ export default class TodoList extends Component {
 
     // grab the input that the user typed in
     const inputtedItem = document.querySelector("#inputted-item");
-    this.props.addToDoItem(inputtedItem.value)
+    this.props.addTodoItem(inputtedItem.value)
   }
 
   render() {
@@ -47,7 +47,7 @@ export default class TodoList extends Component {
     // 5.3) From now on we can refer to our redux state 
     // through our props object aka this.props.todoState.savedTodoItems 
     // ---------------------------------------
-    console.log(this.props.todoState.savedToDoItems)
+    // console.log(this.props.todoState.savedTodoItems)
 
     //-------------------------------------
     // Loop through all todo items in state (using map()) 
@@ -55,7 +55,7 @@ export default class TodoList extends Component {
     //-------------------------------------
 
     // looping through the array in state
-    const listOfItems =this.props.todoState.savedToDoItems.map((item, id)=>{
+    const listOfItems =this.props.todoState.savedTodoItems.map((item, id)=>{
          return(<h5 key={id}>{item}</h5>)
     })
 
@@ -75,3 +75,16 @@ export default class TodoList extends Component {
     )
   }
 }
+
+// --------------------------------------------------------------------------
+// 5.1) This will be how we tell react that this component will be connecting to our redux store
+// --------------------------------------------------------------------------
+export default connect(mapStateToProps,mapDispatchToProps)(TodoList);
+
+// ** Note
+// There are two methods used in the connect():
+// mapStateToProps => used for getting and using state in this component
+// mapDispatchToProps => used for setting/changing state
+
+// Use null if you arent using mapDispatchToProps like this => export default connect(mapStateToProps,null)(TodoDisplay); 
+// export default connect(mapStateToProps,mapDispatchToProps)(TodoDisplay);

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './Components/App';
+import App from './components/App';
 // 1. We need to import this Provider to "GIVE" our app access to redux state. 
 // We do this using react-redux because this is a react application
 import{ Provider } from 'react-redux';
